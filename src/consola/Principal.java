@@ -314,13 +314,13 @@ public class Principal {
         if (!sala.getFunciones().containsKey(fecha)) { System.out.println("No hay funciones en esa fecha"); return; }
 
         System.out.println("Hora actual (hh:mm):"); 
-        String hora = leerTexto();
-        Funcion funcion = sala.buscarFuncionFechaHora(fecha, hora);
-        if (funcion == null) { System.out.println("Función no encontrada"); return; }
+        String horaVieja = leerTexto();
+        if (sala.buscarFuncionFechaHora(fecha, horaVieja) == null) { System.out.println("Función no encontrada"); return; }
 
         System.out.println("Nueva hora (hh:mm):"); 
-        String nuevaHora = leerTexto();
-        emp.cambiarHoraFuncion(funcion, nuevaHora);
+        String horaNueva = leerTexto();
+        
+        sala.cambiarHoraFuncion(fecha, horaVieja, horaNueva);
         System.out.println("Hora actualizada!");
     }
     /// Menú cliente

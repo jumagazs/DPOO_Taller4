@@ -60,6 +60,13 @@ public class Sala {
 		return this.funciones.get(fecha).get(hora);
 	}
 	
+	public void cambiarHoraFuncion(String fecha, String horaVieja, String horaNueva) {
+	    Funcion funcion = this.funciones.get(fecha).get(horaVieja);
+	    funcion.setHora(horaNueva);
+	    this.funciones.get(fecha).remove(horaVieja);
+	    this.funciones.get(fecha).put(horaNueva, funcion);
+	}
+	
 
 	
 
